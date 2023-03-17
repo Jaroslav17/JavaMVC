@@ -1,0 +1,24 @@
+diff a/pom.xml b/pom.xml	(rejected hunks)
+@@ -17,14 +17,14 @@
+         <java.version>17</java.version>
+     </properties>
+     <dependencies>
+-      <!--  <dependency>
+-            <groupId>org.springframework.boot</groupId>
+-            <artifactId>spring-boot-starter-jdbc</artifactId>
+-        </dependency>
+-        <dependency>
+-            <groupId>org.springframework.boot</groupId>
+-            <artifactId>spring-boot-starter-security</artifactId>
+-        </dependency>-->
++        <!--  <dependency>
++              <groupId>org.springframework.boot</groupId>
++              <artifactId>spring-boot-starter-jdbc</artifactId>
++          </dependency>
++          <dependency>
++              <groupId>org.springframework.boot</groupId>
++              <artifactId>spring-boot-starter-security</artifactId>
++          </dependency>-->
+         <dependency>
+             <groupId>org.springframework.boot</groupId>
+             <artifactId>spring-boot-starter-thymeleaf</artifactId>
