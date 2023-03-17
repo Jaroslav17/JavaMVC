@@ -12,13 +12,18 @@ public class ForecastController {
 
     @GetMapping("/")
     public ModelAndView index() {
-        var modelAndView = new ModelAndView("index");
+         var modelAndView = new ModelAndView("index");
 
         var indexModel = new IndexModel();
 
         var cities = new ArrayList<String>();
         cities.add("Vilnius");
         cities.add("Kaunas");
+        cities.add("Klaipėda");
+        cities.add("Šiauliai");
+        cities.add("Panevežys");
+        cities.add("Nida");
+
         indexModel.cities = cities;
 
         modelAndView.addObject("IndexModel", indexModel);
