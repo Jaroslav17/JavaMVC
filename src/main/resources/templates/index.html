@@ -6,5 +6,10 @@
 </head>
 <body>
     Hello world!
+
+<ul th:each = "city : ${cities}">
+    <li th:text = "${city}"></li>
+</ul>
+
 </body>
 </html>
