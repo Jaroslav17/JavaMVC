@@ -24,24 +24,23 @@
     <select>
         <option></option>
         <option th:each="city : ${IndexModel.cities}" th:text="${city}" th:value="${city}"></option>
+
     </select>
 
-    <table class="table table-dark table-hover">
+
+    <table class="table table-striped table-hover">
         <thead>
         <tr>
-            <th scope="col">Data</th>
+            <th scope="col">Date</th>
             <th scope="col">Temperatura</th>
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <td>2023-01</td>
-            <td>111</td>
+        <tr th:each="forecast : ${IndexModel.forecasts}">
+            <td th:text="${forecast.date}"></td>
+            <td th:text="${forecast.temperatura}"></td>
         </tr>
-        <tr>
-            <td>2023-02</td>
-            <td>222</td>
-        </tr>
+
 
         </tbody>
     </table>
