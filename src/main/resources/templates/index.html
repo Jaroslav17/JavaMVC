@@ -15,12 +15,6 @@
 <body>
 <div class="forecast-block container">
 
-    Hello world!
-
-    <ul th:each="city : ${IndexModel.cities}">
-        <li th:text="${city}"></li>
-    </ul>
-
     <select>
         <option></option>
         <option th:each="city : ${IndexModel.cities}" th:text="${city}" th:value="${city}"></option>
