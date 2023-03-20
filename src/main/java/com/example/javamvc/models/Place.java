@@ -8,4 +8,5 @@ public class Place {
     public String countryCode;
     public Coordinates coordinates;
 
+
 }

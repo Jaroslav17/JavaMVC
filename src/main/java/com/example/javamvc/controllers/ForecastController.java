@@ -8,13 +8,12 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.xml.crypto.Data;
+
 import java.io.IOException;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.ProtocolException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -23,23 +22,31 @@ import java.util.Scanner;
 public class ForecastController {
 
     @GetMapping("/")
-    public ModelAndView index() throws IOException {//controler
-        var modelAndView = new ModelAndView("index");//view
+    public ModelAndView index(@RequestParam(required = false) String cityCode) throws IOException {//controler prieamame duomenys per view
+        var modelAndView = new ModelAndView("index");
         var indexModel = new IndexModel();
 
-        ArrayList<String> cities = getCities(); //miestai
+        ArrayList<Place> cities = getCities(); //miestai
         indexModel.cities = cities;
 
-        ArrayList<ForecastModel> forecasts = getForecasts(); // prognuoze
-        indexModel.forecasts = forecasts;
+        if (cityCode != null && !cityCode.equals("")) {
+            ArrayList<ForecastModel> forecasts = getForecasts(cityCode);
+            indexModel.forecasts = forecasts;
+        }
 
-        modelAndView.addObject("IndexModel", indexModel);//gavome vaizda
+        if (cityCode == "") {
+            cityCode = null;
+        }
+
+        indexModel.currentCityCode = cityCode;                                 // uzsetinamae ir grazinsime atgal i view
+
+        modelAndView.addObject("IndexModel", indexModel);
+
         return modelAndView;
     }
 
-    //////Cities///////////////
-    private static ArrayList<String> getCities() throws IOException {
-        var cities = new ArrayList<String>();
+    private static ArrayList<Place> getCities() throws IOException {
+        var cities = new ArrayList<Place>();
 
         var json = loadDataJson("https://api.meteo.lt/v1/places");
 
@@ -47,17 +54,21 @@ public class ForecastController {
         Place[] places = om.readValue(json, Place[].class);
 
         for (var place : places) {
-            cities.add(place.name);
+            var p = new Place();
+            p.code = place.code;
+            p.name = place.name;
+            cities.add(place);
         }
 
         return cities;
 
-    }/////////////Date/time//////////
-    // is stringa norime paversti i objegta
-    private static ArrayList<ForecastModel> getForecasts() throws IOException {
+    }
+
+
+    private static ArrayList<ForecastModel> getForecasts(String cityCode) throws IOException {
         var forecasts = new ArrayList<ForecastModel>();
 
-        var json = loadDataJson("https://api.meteo.lt/v1/places/vilnius/forecasts/long-term");
+        var json = loadDataJson("https://api.meteo.lt/v1/places/" + cityCode + "/forecasts/long-term");
         Root obj = createObj(json);
 
 

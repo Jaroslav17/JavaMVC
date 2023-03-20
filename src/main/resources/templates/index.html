@@ -13,31 +13,44 @@
     </style>
 </head>
 <body>
+
 <div class="forecast-block container">
 
-    <select>
-        <option></option>
-        <option th:each="city : ${IndexModel.cities}" th:text="${city}" th:value="${city}"></option>
+    <div th:if="${IndexModel.currentCityCode}"></div>
+    <div th:unless="${IndexModel.currentCityCode}">Pasirinkite miesta:</div>
 
-    </select>
+    <form method="get">
 
+        <select name="cityCode" onchange="this.form.submit()">
+            <option></option>
+            <option th:each="city : ${IndexModel.cities}"
+                    th:text="${city.name}"
+                    th:value="${city.code}"
+                    th:selected="${city.code==IndexModel.currentCityCode}"
 
-    <table class="table table-striped table-hover">
-        <thead>
-        <tr>
-            <th scope="col">Date</th>
-            <th scope="col">Temperatura</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="forecast : ${IndexModel.forecasts}">
-            <td th:text="${forecast.date}"></td>
-            <td th:text="${forecast.temperatura}"></td>
-        </tr>
+            ></option>
+        </select>
+    </form>
 
+    <div th:if="${IndexModel.currentCityCode}">
+        <table class="table table-striped table-hover">
+            <thead>
+            <tr>
+                <th scope="col">Date</th>
+                <th scope="col">Temperatura</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="forecast : ${IndexModel.forecasts}">
+                <td th:text="${forecast.date}"></td>
+                <td th:text="${forecast.temperatura}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div th:unless="${IndexModel.currentCityCode}">
+    </div>
 
-        </tbody>
-    </table>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
