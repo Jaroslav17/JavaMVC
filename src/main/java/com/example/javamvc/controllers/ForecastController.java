@@ -34,8 +34,8 @@ public class ForecastController {
             indexModel.forecasts = forecasts;
         }
 
-        if (cityCode == "") {
-            cityCode = null;
+        if(cityCode == ""){
+            cityCode=null;
         }
 
         indexModel.currentCityCode = cityCode;                                 // uzsetinamae ir grazinsime atgal i view

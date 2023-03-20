@@ -9,6 +9,5 @@ public class ForecastModel {
         this.temperatura = temperatura;
 
 
-
     }
 }

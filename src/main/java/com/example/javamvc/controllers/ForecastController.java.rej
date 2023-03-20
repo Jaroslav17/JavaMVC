@@ -1,8 +1,0 @@
-diff a/src/main/java/com/example/javamvc/controllers/ForecastController.java b/src/main/java/com/example/javamvc/controllers/ForecastController.java	(rejected hunks)
-@@ -1,5 +1,6 @@
- package com.example.javamvc.controllers;
- 
-+import com.example.javamvc.models.IndexModel;
- import org.springframework.stereotype.Controller;
- import org.springframework.web.bind.annotation.GetMapping;
- import org.springframework.web.servlet.ModelAndView;
