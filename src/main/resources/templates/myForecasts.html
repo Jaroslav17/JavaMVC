@@ -6,12 +6,30 @@
 </head>
 <body>
 
-<ul th:each="forecast : ${myForecasts}">
-    <li>
-        <span th:text="${forecast.date}"></span>
-        <span th:text="${forecast.temperature}"></span>
-    </li>
-</ul>
+
+<div th:if="${myForecasts}">
+    <table id="forecast" class="table table-striped table-hover">
+        <thead>
+        <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Temperatura</th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+
+        <tbody>
+
+        <ul th:each="forecast : ${myForecasts}">
+                <span th:text="${forecast.date}"></span>
+                <span th:text="${forecast.temperature}"></span>
+        </ul>
+        </tbody>
+
+    </table>
+</div>
+
+
 
 </body>
 </html>
+

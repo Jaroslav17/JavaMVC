@@ -1,6 +1,5 @@
 package com.example.javamvc.controllers;
 
-import com.example.javamvc.models.Forecast;
 import com.example.javamvc.repositories.ForecastRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 
 @Controller
@@ -22,7 +20,7 @@ public class MyForecastController {
     public ModelAndView index(@RequestParam(required = false) String cityCode) throws IOException {//controler prieamame duomenys per view
         var modelAndView = new ModelAndView("myForecasts");
         var model = forecastRepository.findAll();
-        
+
 
         modelAndView.addObject("myForecasts", model);
         return modelAndView;
