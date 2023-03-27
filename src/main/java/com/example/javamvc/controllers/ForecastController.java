@@ -32,13 +32,11 @@ public class ForecastController {
 
         String userName;// istraukiame max info i perduodai i modeli ir i xtml
         if (principal instanceof UserDetails) {
-            userName = ((UserDetails)principal).getUsername();
+            userName = ((UserDetails) principal).getUsername();
         } else {
             userName = principal.toString();
         }
         indexModel.userName = userName;
-
-
 
 
         ArrayList<Place> cities = getCities(); //miestai

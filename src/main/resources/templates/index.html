@@ -11,7 +11,8 @@
         .forecast-block {
             margin-top: 50px;
         }
-        .ok{
+
+        .ok {
             color: green;
             display: none;
         }
@@ -22,7 +23,7 @@
 
 <div class="forecast-block container">
 
-    
+
     <div>
         <span>Labas </span>
         <span th:text="${IndexModel.userName}"></span>
@@ -32,7 +33,6 @@
     <form th:action="@{/logout}" method="post">
         <input type="submit" value="Atsijungti"/>
     </form>
-
 
 
     <div th:if="${IndexModel.currentCityCode}"></div>
@@ -55,7 +55,7 @@
         <table id="myTable" class="table table-striped table-hover">
 
             <thead>
-            <tr bgcolor = "lightgrey">
+            <tr bgcolor="lightgrey">
                 <th scope="col">Date</th>
                 <th scope="col">Temperatura</th>
                 <th scope="col"></th>
@@ -108,8 +108,8 @@
 
         });
 
-        el.parentElement.getElementsByClassName("btn")[0].style.display="none";
-        el.parentElement.getElementsByClassName("ok")[0].style.display="block";
+        el.parentElement.getElementsByClassName("btn")[0].style.display = "none";
+        el.parentElement.getElementsByClassName("ok")[0].style.display = "block";
     }
 </script>
 </body>

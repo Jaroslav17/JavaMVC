@@ -8,14 +8,14 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.io.IOException;
 
-    @Controller
-    public class LoginController {
-        @GetMapping("/login")
-        public ModelAndView login() {
+@Controller
+public class LoginController {
+    @GetMapping("/login")
+    public ModelAndView login() {
 
-            ModelAndView modelAndView = new ModelAndView("login");
-            return modelAndView;
-        }
+        ModelAndView modelAndView = new ModelAndView("login");
+        return modelAndView;
     }
+}
 
 

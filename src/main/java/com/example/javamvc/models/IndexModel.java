@@ -10,5 +10,4 @@ public class IndexModel {
     public String userName;
 
 
-
 }
