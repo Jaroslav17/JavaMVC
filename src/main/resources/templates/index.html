@@ -25,9 +25,9 @@
 
 
     <div>
-        <span>Labas </span>
-        <span th:text="${IndexModel.userName}"></span>
-        <span>!</span>
+        <h5><span>Labas </span>
+            <span th:text="${IndexModel.userName}"></span>
+            <span>!</span></h5>
     </div>
 
     <form th:action="@{/logout}" method="post">
@@ -57,7 +57,7 @@
             <thead>
             <tr bgcolor="lightgrey">
                 <th scope="col">Date</th>
-                <th scope="col">Temperatura</th>
+                <th scope="col">Temperature</th>
                 <th scope="col"></th>
             </tr>
             </thead>
