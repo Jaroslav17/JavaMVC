@@ -25,13 +25,13 @@
 
 
     <div>
-        <h5><span>Labas </span>
+        <h4><span>Labas </span>
             <span th:text="${IndexModel.userName}"></span>
-            <span>!</span></h5>
+            <span>!</span></h4>
     </div>
 
     <form th:action="@{/logout}" method="post">
-        <input type="submit" value="Atsijungti"/>
+        <input type="submit" value="Log Out"/>
     </form>
 
 
@@ -58,7 +58,7 @@
             <tr bgcolor="lightgrey">
                 <th scope="col">Date</th>
                 <th scope="col">Temperature</th>
-                <th scope="col"></th>
+                <th scope="col">Operation</th>
             </tr>
             </thead>
             <tbody>
@@ -68,7 +68,7 @@
 
                 <td>
                     <button class="btn btn-success" onclick="save(this)">
-                        <i class="bi bi-cloud-download"></i> Issaugoti
+                        <i class="bi bi-cloud-download"></i> Save
                     </button>
 
                     <i class="ok bi bi-check-circle"></i>
