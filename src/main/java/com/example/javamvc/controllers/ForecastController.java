@@ -87,7 +87,7 @@ public class ForecastController {
 
         // ! gaunama ir sumapiname
         for (var stamp : obj.forecastTimestamps) {
-            var forecast = new ForecastModel(stamp.forecastTimeUtc, stamp.airTemperature);
+            var forecast = new ForecastModel(cityCode,stamp.forecastTimeUtc, stamp.airTemperature);
             forecasts.add(forecast);
         }
 

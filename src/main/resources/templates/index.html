@@ -21,6 +21,32 @@
 </head>
 <body>
 
+<nav class="navbar navbar-expand-md navbar-light bg-light">
+    <div class="container-fluid">
+        <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+                <button class="btn btn-outline-success">
+                    <i class="bi bi-cloud-download">
+                        <a class="nav-link" href="/my-forecasts">Save
+                        </a>
+                    </i>
+                </button>
+            </li>
+        </ul>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <form th:action="@{/logout}" method="post">
+                    <button class="btn btn-outline-danger">Log Out
+                        <i class="bi bi-box-arrow-right">
+                        </i>
+                    </button>
+                </form>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
 <div class="forecast-block container">
 
 
@@ -29,10 +55,6 @@
             <span th:text="${IndexModel.userName}"></span>
             <span>!</span></h4>
     </div>
-
-    <form th:action="@{/logout}" method="post">
-        <input type="submit" value="Log Out"/>
-    </form>
 
 
     <div th:if="${IndexModel.currentCityCode}"></div>
@@ -56,13 +78,15 @@
 
             <thead>
             <tr bgcolor="lightgrey">
-                <th scope="col">Date</th>
+                <th scope="col">City</th>
+                <th scope="col">Date & Time</th>
                 <th scope="col">Temperature</th>
                 <th scope="col">Operation</th>
             </tr>
             </thead>
             <tbody>
             <tr th:each="forecast : ${IndexModel.forecasts}">
+                <td class="city-value" th:text="${forecast.city}"></td>
                 <td class="date-value" th:text="${forecast.date}"></td>
                 <td class="temperature-value" th:text="${forecast.temperatura}"></td>
 
@@ -70,7 +94,6 @@
                     <button class="btn btn-success" onclick="save(this)">
                         <i class="bi bi-cloud-download"></i> Save
                     </button>
-
                     <i class="ok bi bi-check-circle"></i>
                 </td>
 
@@ -94,6 +117,7 @@
 
     function save(el) {
         var parent = el.parentElement.parentElement;
+        var city = parent.getElementsByClassName("city-value")[0].textContent;
         var date = parent.getElementsByClassName("date-value")[0].textContent;
         var temperature = parent.getElementsByClassName("temperature-value")[0].textContent;
 
@@ -101,6 +125,7 @@
             url: 'http://localhost:8080/api/forecast',
             type: "POST",
             data: JSON.stringify({
+                "city": city,
                 "date": date,
                 "temperatura": temperature
             }),

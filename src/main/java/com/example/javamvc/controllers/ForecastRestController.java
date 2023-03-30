@@ -23,7 +23,7 @@ public class ForecastRestController {
         Forecast entity = new Forecast(
                 model.date,
                 String.valueOf(model.temperatura),
-                "Vilnius",
+                model.city,
                 1);
 
 
