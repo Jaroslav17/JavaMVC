@@ -19,27 +19,29 @@
     <div class="container-fluid">
         <ul class="navbar-nav me-auto">
             <li class="nav-item">
-                <button class="btn btn-outline-success">
-                    <i class="bi bi-arrow-left"></i>
-                        <a class="nav-link" href="/">Go Back
-                        </a>
-                    </i>
-                </button>
+                <a class="nav-link" href="/">
+                    <button class="btn btn-outline-success">
+                        <i class="bi bi-house "></i> Home
+                    </button>
+                </a>
             </li>
         </ul>
         <ul class="navbar-nav">
             <li class="nav-item">
                 <form th:action="@{/logout}" method="post">
-                    <button class="btn btn-outline-danger">Log Out
-                        <i class="bi bi-box-arrow-right">
-                        </i>
+                    <button class="btn btn-outline-danger">
+                        <i class="bi bi-box-arrow-right"></i> Log Out
+                    </button>
                     </button>
                 </form>
             </li>
         </ul>
     </div>
 </nav>
+
 <div class="forecast-block container">
+    <table class="table table-striped table-hover">
+
         <thead>
         <tr bgcolor="lightgrey">
         <tr class="table-active">
@@ -62,6 +64,7 @@
             </td>
         </tr>
         </tbody>
+
     </table>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
@@ -69,12 +72,5 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
 </div>
-<script>
-    /*function delete(el){
-        var parent = el.parentElement.parentElement;
-        var date = parent.delete("date-value")[0].textContent;
-        var temperature = parent.deleteData("temperature-value")[0].textContent;
-    }*/
-</script>
 </body>
 </html>
