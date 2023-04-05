@@ -16,7 +16,6 @@
             color: green;
             display: none;
         }
-
     </style>
 </head>
 <body>
@@ -26,11 +25,12 @@
         <ul class="navbar-nav me-auto">
             <li class="nav-item">
                 <a class="nav-link" href="/my-forecasts">
-                    <button class="btn btn-outline-success">
-                        <i class="bi bi-cloud-download"></i> Save
+                    <button class="btn btn-outline-success">Save
+                        <i class="bi bi-cloud-download">
+
+                        </i>
                     </button>
                 </a>
-                </button>
             </li>
         </ul>
         <ul class="navbar-nav">
@@ -51,7 +51,7 @@
 
 
     <div>
-        <h4><span>Labas </span>
+        <h4><span>Labas</span>
             <span th:text="${IndexModel.userName}"></span>
             <span>!</span></h4>
     </div>
@@ -67,43 +67,39 @@
             <option th:each="city : ${IndexModel.cities}"
                     th:text="${city.name}"
                     th:value="${city.code}"
-                    th:selected="${city.code==IndexModel.currentCityCode}"
-
-            ></option>
+                    th:selected="${city.code==IndexModel.currentCityCode}">
+            </option>
         </select>
     </form>
 
     <div th:if="${IndexModel.currentCityCode}">
-        <table id="myTable" class="table table-striped table-hover">
+        <table id="myTable" class="table mt-3 text-center">
 
             <thead>
             <tr class="lightgrey">
-                <th class="text-center">City</th>
-                <th class="text-center">Date & Time</th>
-                <th class="text-center">Temperature</th>
-                <th class="text-center">Operation</th>
+                <th scope="col" class="text-center">City</th>
+                <th scope="col" class="text-center">Date</th>
+                <th scope="col" class="text-center">Temperature</th>
+                <th scope="col" class="text-center">Operation</th>
             </tr>
             </thead>
+
             <tbody>
             <tr th:each="forecast : ${IndexModel.forecasts}">
-
-                <td th:text="${forecast.city}" class="text-center"></td>
-                <td th:text="${forecast.date}" class="text-center"></td>
-                <td th:text="${forecast.temperatura}" class="text-center"></td>
-                <td class="text-center">
+                <td class="city-value" th:text="${forecast.city}"></td>
+                <td class="date-value" th:text="${forecast.date}"></td>
+                <td class="temperature-value" th:text="${forecast.temperature}"></td>
+                <td>
                     <button class="btn btn-success" onclick="save(this)">
-                        <i class="bi bi-cloud-download"></i> Save
+                        <i class="bi bi-cloud-download"></i> save
                     </button>
                     <i class="ok bi bi-check-circle"></i>
                 </td>
-
-
             </tr>
             </tbody>
         </table>
     </div>
     <div th:unless="${IndexModel.currentCityCode}"></div>
-
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
@@ -127,10 +123,9 @@
             data: JSON.stringify({
                 "city": city,
                 "date": date,
-                "temperatura": temperature
+                "temperature": temperature
             }),
             contentType: "application/json"
-
         });
 
         el.parentElement.getElementsByClassName("btn")[0].style.display = "none";

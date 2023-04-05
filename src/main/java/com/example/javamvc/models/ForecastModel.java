@@ -4,13 +4,13 @@ public class ForecastModel {
     public Integer id;
     public String city;
     public String date;
-    public double temperatura;
+    public double temperature;
 
-    public ForecastModel(String city, String date, double temperatura) {
+    public ForecastModel(String city, String date, double temperature) {
         this.id = id;
         this.city = city;
         this.date = date;
-        this.temperatura = temperatura;
+        this.temperature = temperature;
 
 
     }
