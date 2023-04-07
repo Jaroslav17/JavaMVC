@@ -11,6 +11,21 @@
         .forecast-block {
             margin-top: 50px;
         }
+
+        html,
+        body {
+            min-height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-image: url("https://www.ionos.com/digitalguide/fileadmin/_processed_/4/a/csm_cloud-speicher-dienste-t_8adf7bb9bc.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
     </style>
 </head>
 <body>
@@ -35,8 +50,14 @@
             </li>
         </ul>
     </div>
+
 </nav>
-<div class="forecast-block container">
+<div class="forecast-block container shadow-lg p-3 mb-5 rounded">
+    <div class="d-flex justify-content-center"><h4>Orų prognozė
+        <i class="bi bi-cloud-sun">
+        </i>
+    </h4>
+    </div>
     <table class="table table-striped table-hover">
         <thead>
         <tr class="lightgrey">

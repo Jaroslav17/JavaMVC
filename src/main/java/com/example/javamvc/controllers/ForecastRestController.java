@@ -1,4 +1,5 @@
 package com.example.javamvc.controllers;
+
 import com.example.javamvc.models.Forecast;
 import com.example.javamvc.models.ForecastModel;
 import com.example.javamvc.repositories.ForecastRepository;
@@ -15,7 +16,6 @@ public class ForecastRestController {
     @PostMapping(value = "/api/forecast", consumes = "application/json")
     public void index(@RequestBody ForecastModel model) {
 
-
         Forecast entity = new Forecast(
                 model.date,
                 String.valueOf(model.temperature),
@@ -24,8 +24,6 @@ public class ForecastRestController {
 
 
         forecastRepository.save(entity);
-
-
 
 
     }

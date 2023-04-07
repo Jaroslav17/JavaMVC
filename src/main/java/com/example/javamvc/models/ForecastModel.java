@@ -7,7 +7,6 @@ public class ForecastModel {
     public double temperature;
 
     public ForecastModel(String city, String date, double temperature) {
-        this.id = id;
         this.city = city;
         this.date = date;
         this.temperature = temperature;

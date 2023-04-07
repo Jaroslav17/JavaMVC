@@ -16,10 +16,24 @@
             color: green;
             display: none;
         }
+
+        html,
+        body {
+            min-height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-image: url("https://images.unsplash.com/photo-1504253163759-c23fccaebb55?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&w=1000&q=80");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
     </style>
 </head>
 <body>
-
 <nav class="navbar navbar-expand-md navbar bg-success">
     <div class="container-fluid">
         <ul class="navbar-nav me-auto">
@@ -43,10 +57,19 @@
             </li>
         </ul>
     </div>
+    .
 </nav>
 
-<div class="forecast-block container">
+
+<div class="forecast-block container shadow-lg p-3 mb-5 rounded">
+
     <div>
+        <div class="d-flex justify-content-center"><h4>Orų prognozė
+            <i class="bi bi-cloud-sun">
+            </i>
+        </h4>
+        </div>
+
         <h4><span>Labas</span>
             <span th:text="${IndexModel.userName}"></span>
             <span>!</span></h4>
@@ -65,7 +88,6 @@
             </option>
         </select>
     </form>
-
     <div th:if="${IndexModel.currentCityCode}">
         <table id="myTable" class="table table-striped table-hover text-center">
             <thead>
@@ -91,6 +113,7 @@
             </tr>
             </tbody>
         </table>
+
     </div>
     <div th:unless="${IndexModel.currentCityCode}"></div>
 </div>
