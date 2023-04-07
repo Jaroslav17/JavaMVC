@@ -19,9 +19,9 @@ public class MyForecastController {
 
     @Autowired
     private ForecastRepository forecastRepository;
-
+    //controler prieamame duomenys per view
     @GetMapping("/my-forecasts")
-    public ModelAndView index(@RequestParam(required = false) String cityCode) throws IOException {//controler prieamame duomenys per view
+    public ModelAndView index(@RequestParam(required = false) String cityCode) throws IOException {
         var modelAndView = new ModelAndView("myForecasts");
         var model = forecastRepository.findAll();
 

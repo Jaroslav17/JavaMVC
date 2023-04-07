@@ -10,6 +10,5 @@ public class User {
 
     @Column(nullable = false, unique = true)
     public String username;
-
     public String password;
 }

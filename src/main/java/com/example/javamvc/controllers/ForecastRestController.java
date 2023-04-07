@@ -1,15 +1,11 @@
-
-
-// priima plikus duomenys nedirba su html, dirba su duomenemys, norime kad saugotu
 package com.example.javamvc.controllers;
-
 import com.example.javamvc.models.Forecast;
 import com.example.javamvc.models.ForecastModel;
 import com.example.javamvc.repositories.ForecastRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-
+// priima plikus duomenys nedirba su html, dirba su duomenemys, norime kad saugotu
 @RestController
 public class ForecastRestController {
 

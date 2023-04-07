@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -29,8 +28,8 @@ public class ForecastController {
         var indexModel = new IndexModel();
 
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-
-        String userName;// istraukiame max info i perduodai i modeli ir i xtml
+        // istraukiame max info i perduodai i modeli ir i xtml
+        String userName;
         if (principal instanceof UserDetails) {
             userName = ((UserDetails) principal).getUsername();
         } else {
@@ -38,8 +37,7 @@ public class ForecastController {
         }
         indexModel.userName = userName;
 
-
-        ArrayList<Place> cities = getCities(); //miestai
+        ArrayList<Place> cities = getCities();
         indexModel.cities = cities;
 
         if (cityCode != null && !cityCode.equals("")) {
@@ -50,8 +48,8 @@ public class ForecastController {
         if (cityCode == "") {
             cityCode = null;
         }
-
-        indexModel.currentCityCode = cityCode;                                 // uzsetinamae ir grazinsime atgal i view
+        // uzsetinamae ir grazinsime atgal i view
+        indexModel.currentCityCode = cityCode;
 
         modelAndView.addObject("IndexModel", indexModel);
 
@@ -74,9 +72,7 @@ public class ForecastController {
         }
 
         return cities;
-
     }
-
 
     private static ArrayList<ForecastModel> getForecasts(String cityCode) throws IOException {
         var forecasts = new ArrayList<ForecastModel>();
@@ -87,7 +83,7 @@ public class ForecastController {
 
         // ! gaunama ir sumapiname
         for (var stamp : obj.forecastTimestamps) {
-            var forecast = new ForecastModel(cityCode,stamp.forecastTimeUtc, stamp.airTemperature);
+            var forecast = new ForecastModel(cityCode, stamp.forecastTimeUtc, stamp.airTemperature);
             forecasts.add(forecast);
         }
 

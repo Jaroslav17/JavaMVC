@@ -1,5 +1,4 @@
 package com.example.javamvc.models;
-
 public class Place {
     public String code;
     public String name;

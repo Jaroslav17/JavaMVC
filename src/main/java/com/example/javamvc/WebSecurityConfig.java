@@ -32,7 +32,7 @@ public class WebSecurityConfig {
         return http.build();
     }
 
-// koduote kuri apsaugo nuo duoomenu pavogimo
+// koduote kuri apsaugo nuo duomenu vagystes
 
     @SuppressWarnings("deprecation")
     @Bean
